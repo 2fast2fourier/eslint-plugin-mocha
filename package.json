@@ -12,7 +12,8 @@
         "changelog": "pr-log"
     },
     "dependencies": {
-        "lodash": "^3.9.3"
+        "lodash": "^3.9.3",
+        "estraverse": "4.1.0"
     },
     "devDependencies": {
         "pr-log": "1.1.0",

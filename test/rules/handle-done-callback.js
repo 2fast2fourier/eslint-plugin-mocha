@@ -83,6 +83,18 @@ eslintTester.addRuleTest('lib/rules/handle-done-callback', {
             code: 'it("", (done) => { });',
             ecmaFeatures: { arrowFunctions: true },
             errors: [ { message: 'Expected "done" callback to be handled.', column: 8, line: 1 } ]
+        },
+        {
+            code: 'it("", function (done) { return done; });',
+            errors: [ { message: 'Expected "done" callback to be handled.', column: 17, line: 1 } ]
+        },
+        {
+            code: 'it("", function (done) { done; });',
+            errors: [ { message: 'Expected "done" callback to be handled.', column: 17, line: 1 } ]
+        },
+        {
+            code: 'it("", function (done) { var foo = done; });',
+            errors: [ { message: 'Expected "done" callback to be handled.', column: 17, line: 1 } ]
         }
     ]
 });
